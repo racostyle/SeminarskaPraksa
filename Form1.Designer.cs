@@ -32,7 +32,7 @@ namespace SeminarskaPraksa
             tbOutputBox = new TextBox();
             btnThreading1_Tasks = new Button();
             btnThreading2_Timer = new Button();
-            button3 = new Button();
+            btnThreading3_Token = new Button();
             button4 = new Button();
             button5 = new Button();
             button6 = new Button();
@@ -83,17 +83,17 @@ namespace SeminarskaPraksa
             btnThreading2_Timer.UseVisualStyleBackColor = false;
             btnThreading2_Timer.Click += OnBtnThreading2_Timer_Click;
             // 
-            // button3
+            // btnThreading3_Token
             // 
-            button3.BackColor = SystemColors.InfoText;
-            button3.ForeColor = SystemColors.HighlightText;
-            button3.Location = new Point(12, 126);
-            button3.Name = "button3";
-            button3.Size = new Size(301, 29);
-            button3.TabIndex = 3;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = false;
-            button3.Click += OnButton3_Click;
+            btnThreading3_Token.BackColor = SystemColors.InfoText;
+            btnThreading3_Token.ForeColor = SystemColors.HighlightText;
+            btnThreading3_Token.Location = new Point(12, 126);
+            btnThreading3_Token.Name = "btnThreading3_Token";
+            btnThreading3_Token.Size = new Size(301, 29);
+            btnThreading3_Token.TabIndex = 3;
+            btnThreading3_Token.Text = "Threading3_Token";
+            btnThreading3_Token.UseVisualStyleBackColor = false;
+            btnThreading3_Token.Click += OnbtnThreading3_Token_Click;
             // 
             // button4
             // 
@@ -257,7 +257,7 @@ namespace SeminarskaPraksa
             Controls.Add(button6);
             Controls.Add(button5);
             Controls.Add(button4);
-            Controls.Add(button3);
+            Controls.Add(btnThreading3_Token);
             Controls.Add(btnThreading2_Timer);
             Controls.Add(tbOutputBox);
             Controls.Add(btnThreading1_Tasks);
@@ -272,7 +272,7 @@ namespace SeminarskaPraksa
         private Button btnClearText;
         private Button btnThreading1_Tasks;
         private Button btnThreading2_Timer;
-        private Button button3;
+        private Button btnThreading3_Token;
         private Button button4;
         private Button button5;
         private Button button6;

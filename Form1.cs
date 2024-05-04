@@ -35,9 +35,9 @@ namespace SeminarskaPraksa
             }
         }
 
-        private void OnButton3_Click(object sender, EventArgs e)
+        private void OnbtnThreading3_Token_Click(object sender, EventArgs e)
         {
-
+            new Threading3_Token(PrintInTextbox, 500, 3000);
         }
 
         private void OnButton4_Click(object sender, EventArgs e)

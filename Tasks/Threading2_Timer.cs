@@ -22,7 +22,7 @@
             {
                 await Task.Delay(timerDuration);
                 _isActive = false;
-                printInTextbox("Threading2_Tmer Stopped");
+                printInTextbox("Threading2_Timer Stopped");
             });
 
             _tasks = new List<Task>()
