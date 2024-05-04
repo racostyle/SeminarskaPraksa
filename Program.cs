@@ -8,7 +8,7 @@
 
             var task2 = Task.Run(task1.SimpleTaskAsyncMethod);
 
-            //what if we want to waith for a task?
+            //what if we want to wait for a task?
             await task1.SimpleTaskAsyncMethod();
 
             while (true)
