@@ -1,4 +1,4 @@
-﻿namespace AsyncExamples.AsyncTasks
+﻿namespace SeminarskaPraksa.AsyncTasks
 {
     internal interface ITasks
     {

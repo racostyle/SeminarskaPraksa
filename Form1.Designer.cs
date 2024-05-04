@@ -1,5 +1,5 @@
 ﻿
-namespace AsyncExamples
+namespace SeminarskaPraksa
 {
     partial class Form1
     {

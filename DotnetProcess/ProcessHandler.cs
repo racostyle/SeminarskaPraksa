@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Text;
 
-namespace SeminarskaPraksa.dotnet_process
+namespace SeminarskaPraksa.DotnetProcess
 {
     internal class ProcessHandler
     {
@@ -146,10 +146,12 @@ namespace SeminarskaPraksa.dotnet_process
         //Get-Process | Where-Object { ($_.ProcessName -like 'notepad' -or $_.ProcessName -like '*winword*') -and $_.ProcessName -notlike '*wordpad*' } | Stop-Process -Force
         #endregion
 
+        #region KILL PROCESS BY WINDOW STYLE
         internal async static Task FindProcesesByWindowStyle()
         {
             var command = "Get-Process | Where-Object { $_.MainWindowTitle -ne \"\" } | Select-Object Id, Name, MainWindowTitle";
             await ExecuteInBackgroundAsync(command, true);
         }
+        #endregion
     }
 }

@@ -1,21 +1,17 @@
-﻿namespace SeminarskaPraksa
+namespace SeminarskaPraksa
 {
-    internal class Program
+    internal static class Program
     {
-        static async Task Main(string[] args)
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            var task1 = new Threading1_Tasks();
-
-            var task2 = Task.Run(task1.SimpleTaskAsyncMethod);
-
-            //what if we want to wait for a task?
-            await task1.SimpleTaskAsyncMethod();
-
-            while (true)
-            {
-                await Task.Delay(500);
-                Console.WriteLine("delay");
-            }
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
         }
     }
 }

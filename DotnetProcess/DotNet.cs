@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace SeminarskaPraksa.dotnet_process
+namespace SeminarskaPraksa.DotnetProcess
 {
     public static class Dotnet
     {

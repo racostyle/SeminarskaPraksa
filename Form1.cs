@@ -1,6 +1,6 @@
-﻿using AsyncExamples.Tasks;
+﻿using SeminarskaPraksa.Tasks;
 
-namespace AsyncExamples
+namespace SeminarskaPraksa
 {
     public partial class Form1 : Form
     {

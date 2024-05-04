@@ -1,4 +1,4 @@
-﻿namespace AsyncExamples.Tasks
+﻿namespace SeminarskaPraksa.Tasks
 {
     internal class Threading2_Timer : IDisposable
     {
@@ -22,7 +22,7 @@
             {
                 await Task.Delay(timerDuration);
                 _isActive = false;
-                printInTextbox("Threading1_Tasks Stopped");
+                printInTextbox("Threading2_Tmer Stopped");
             });
 
             _tasks = new List<Task>()

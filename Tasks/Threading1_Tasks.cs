@@ -1,4 +1,4 @@
-﻿namespace AsyncExamples.Tasks
+﻿namespace SeminarskaPraksa.Tasks
 {
     internal class Threading1_Tasks
     {

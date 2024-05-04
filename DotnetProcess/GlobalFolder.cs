@@ -1,4 +1,4 @@
-﻿namespace SeminarskaPraksa.dotnet_process
+﻿namespace SeminarskaPraksa.DotnetProcess
 {
     internal static class GlobalFolder
     {
