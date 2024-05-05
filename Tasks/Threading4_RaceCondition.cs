@@ -7,11 +7,11 @@ namespace SeminarskaPraksa.Tasks
     {
         private int counter = 0;
 
-        public Threading4_RaceCondition(Action<string> printInTextbox, int noOfThreads, int limit)
+        public Threading4_RaceCondition(Action<string> writer, int noOfThreads, int limit)
         {
-            RaceCondition(printInTextbox, noOfThreads, limit);
-            AsyncRaceConditionPrimer(printInTextbox, noOfThreads, limit);
-            LockPrimer(printInTextbox, noOfThreads, limit);
+            RaceCondition(writer, noOfThreads, limit);
+            AsyncRaceConditionPrimer(writer, noOfThreads, limit);
+            LockPrimer(writer, noOfThreads, limit);
         }
 
         private void RaceCondition(Action<string> printInTextbox, int noOfThreads, int limit)

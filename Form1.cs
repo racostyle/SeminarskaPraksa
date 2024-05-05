@@ -1,4 +1,5 @@
-﻿using SeminarskaPraksa.Tasks;
+﻿using SeminarskaPraksa.AsyncTasks;
+using SeminarskaPraksa.Tasks;
 
 namespace SeminarskaPraksa
 {
@@ -45,9 +46,16 @@ namespace SeminarskaPraksa
             new Threading4_RaceCondition(PrintInTextbox, 15, 50);
         }
 
-        private void OnButton5_Click(object sender, EventArgs e)
+        private async void OnThreading5_TaskFactory_Click(object sender, EventArgs e)
         {
-
+            var task5 = new Threading5_TaskBuilder(PrintInTextbox);
+            await task5.StartTasks(
+                new List<ITasks>
+                {
+                    new HttpAsyncTask(),
+                    new HttpAsyncTask(),
+                    new VeryLongTaskAsync()
+                }, 5); 
         }
 
         private void OnButton6_Click(object sender, EventArgs e)

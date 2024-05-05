@@ -5,7 +5,7 @@
         private bool _isActive;
         private List<Task> _tasks;
 
-        public Threading2_Timer(Action<string> printInTextbox, int timerTick, int timerDuration)
+        public Threading2_Timer(Action<string> writer, int timerTick, int timerDuration)
         {
             _isActive = true;
 
@@ -13,7 +13,7 @@
             {
                 while (_isActive)
                 {
-                    printInTextbox(".");
+                    writer(".");
                     await Task.Delay(timerTick);
                 }
             });
@@ -22,7 +22,7 @@
             {
                 await Task.Delay(timerDuration);
                 _isActive = false;
-                printInTextbox("Threading2_Timer Stopped");
+                writer("Threading2_Timer Stopped");
             });
 
             _tasks = new List<Task>()

@@ -16,7 +16,7 @@
                 }
                 else
                 {
-                    return "Failed to fetch data";
+                    return string.Empty;
                 }
             }
         }

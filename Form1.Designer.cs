@@ -34,7 +34,7 @@ namespace SeminarskaPraksa
             btnThreading2_Timer = new Button();
             btnThreading3_Token = new Button();
             btnThreading4_RaceCondition = new Button();
-            button5 = new Button();
+            btnThreading5_TaskFactory = new Button();
             button6 = new Button();
             button7 = new Button();
             button8 = new Button();
@@ -107,17 +107,17 @@ namespace SeminarskaPraksa
             btnThreading4_RaceCondition.UseVisualStyleBackColor = false;
             btnThreading4_RaceCondition.Click += OnBtnThreading4_RaceCondition_Click;
             // 
-            // button5
+            // btnThreading5_TaskFactory
             // 
-            button5.BackColor = SystemColors.InfoText;
-            button5.ForeColor = SystemColors.HighlightText;
-            button5.Location = new Point(12, 196);
-            button5.Name = "button5";
-            button5.Size = new Size(301, 29);
-            button5.TabIndex = 5;
-            button5.Text = "button5";
-            button5.UseVisualStyleBackColor = false;
-            button5.Click += OnButton5_Click;
+            btnThreading5_TaskFactory.BackColor = SystemColors.InfoText;
+            btnThreading5_TaskFactory.ForeColor = SystemColors.HighlightText;
+            btnThreading5_TaskFactory.Location = new Point(12, 196);
+            btnThreading5_TaskFactory.Name = "btnThreading5_TaskFactory";
+            btnThreading5_TaskFactory.Size = new Size(301, 29);
+            btnThreading5_TaskFactory.TabIndex = 5;
+            btnThreading5_TaskFactory.Text = "Threading5_TaskFactory";
+            btnThreading5_TaskFactory.UseVisualStyleBackColor = false;
+            btnThreading5_TaskFactory.Click += OnThreading5_TaskFactory_Click;
             // 
             // button6
             // 
@@ -255,7 +255,7 @@ namespace SeminarskaPraksa
             Controls.Add(button8);
             Controls.Add(button7);
             Controls.Add(button6);
-            Controls.Add(button5);
+            Controls.Add(btnThreading5_TaskFactory);
             Controls.Add(btnThreading4_RaceCondition);
             Controls.Add(btnThreading3_Token);
             Controls.Add(btnThreading2_Timer);
@@ -274,7 +274,7 @@ namespace SeminarskaPraksa
         private Button btnThreading2_Timer;
         private Button btnThreading3_Token;
         private Button btnThreading4_RaceCondition;
-        private Button button5;
+        private Button btnThreading5_TaskFactory;
         private Button button6;
         private Button button7;
         private Button button8;

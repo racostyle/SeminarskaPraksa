@@ -5,7 +5,7 @@
 
         private readonly CancellationTokenSource _cts;
 
-        public Threading3_Token(Action<string> write, int tick, int delay)
+        public Threading3_Token(Action<string> writer, int tick, int delay)
         {
             _cts = new CancellationTokenSource();
             CancellationToken token = _cts.Token;
@@ -16,15 +16,15 @@
                 while (!token.IsCancellationRequested)
                 {
                     await Task.Delay(tick);
-                    write("Naloga v teku");
+                    writer("Naloga v teku");
                 }
-                write("Naloga končana");
+                writer("Naloga končana");
             }, token);
 
             Task.Run(async () =>
             {
                 await Task.Delay(delay);
-                write("Token cancelled");
+                writer("Token cancelled");
                 _cts.Cancel();
             });
         }
