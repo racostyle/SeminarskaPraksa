@@ -32,7 +32,7 @@
             };
         }
 
-        public async Task WaitForComplete()
+        internal async Task WaitForCompletionAsync()
         {
             await Task.WhenAll(_tasks);
         }

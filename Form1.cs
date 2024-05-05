@@ -31,18 +31,18 @@ namespace SeminarskaPraksa
             using (var timerTask = new Threading2_Timer(PrintInTextbox, 250, time))
             {
                 PrintInTextbox($"Čakamo da se timer konča po {(float)time / 1000} sekundah");
-                await timerTask.WaitForComplete();
+                await timerTask.WaitForCompletionAsync();
             }
         }
 
-        private void OnbtnThreading3_Token_Click(object sender, EventArgs e)
+        private void OnBtnThreading3_Token_Click(object sender, EventArgs e)
         {
             new Threading3_Token(PrintInTextbox, 500, 3000);
         }
 
-        private void OnButton4_Click(object sender, EventArgs e)
+        private void OnBtnThreading4_RaceCondition_Click(object sender, EventArgs e)
         {
-
+            new Threading4_RaceCondition(PrintInTextbox, 15, 50);
         }
 
         private void OnButton5_Click(object sender, EventArgs e)
