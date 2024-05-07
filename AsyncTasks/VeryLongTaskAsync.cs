@@ -1,6 +1,6 @@
 ﻿namespace SeminarskaPraksa.AsyncTasks
 {
-    internal class VeryLongTaskAsync : ITasks
+    internal class VeryLongTaskAsync : IAsyncTask
     {
         public async Task<string> RunAsync()
         {

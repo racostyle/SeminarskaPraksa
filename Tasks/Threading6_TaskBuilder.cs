@@ -2,21 +2,21 @@
 
 namespace SeminarskaPraksa.Tasks
 {
-    internal class Threading5_TaskBuilder
+    internal class Threading6_TaskBuilder
     {
         private readonly Action<string> _writer;
 
-        public Threading5_TaskBuilder(Action<string> writer)
+        public Threading6_TaskBuilder(Action<string> writer)
         {
             _writer = writer;
         }
 
-        internal async Task StartTasks(List<ITasks> tasks, int timeout)
+        internal async Task StartTasks(List<IAsyncTask> tasks, int timeout)
         {
             _writer("Začetek");
             var taskBuilder = new TaskBuilder(_writer);
             List<Task> builtTasks = new List<Task>();
-            foreach (ITasks task in tasks)
+            foreach (IAsyncTask task in tasks)
                 builtTasks.Add(taskBuilder.BuildTask(task, timeout));
 
             await Task.WhenAll(builtTasks);
@@ -33,7 +33,7 @@ namespace SeminarskaPraksa.Tasks
             _writer = writer;
         }
 
-        internal async Task BuildTask(ITasks task, int timeoutInSeconds)
+        internal async Task BuildTask(IAsyncTask task, int timeoutInSeconds)
         {
             var tcs = new TaskCompletionSource<string>();
             var cts = new CancellationTokenSource();
@@ -70,7 +70,7 @@ namespace SeminarskaPraksa.Tasks
             await tcs.Task;
         }
 
-        private async Task<string> MainTaskAsync(ITasks task, TaskCompletionSource<string> tcs)
+        private async Task<string> MainTaskAsync(IAsyncTask task, TaskCompletionSource<string> tcs)
         {
             var result = await task.RunAsync();
             if (!string.IsNullOrEmpty(result)) 

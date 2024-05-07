@@ -1,6 +1,6 @@
 ﻿namespace SeminarskaPraksa.AsyncTasks
 {
-    internal interface ITasks
+    internal interface IAsyncTask
     {
         Task<string> RunAsync();
     }

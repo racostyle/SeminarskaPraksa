@@ -34,8 +34,8 @@ namespace SeminarskaPraksa
             btnThreading2_Timer = new Button();
             btnThreading3_Token = new Button();
             btnThreading4_RaceCondition = new Button();
-            btnThreading5_TaskFactory = new Button();
-            button6 = new Button();
+            btnThreading5_ProxyAndDecorator = new Button();
+            btnThreading6_TaskBuilder = new Button();
             button7 = new Button();
             button8 = new Button();
             button9 = new Button();
@@ -47,18 +47,6 @@ namespace SeminarskaPraksa
             btnClearText = new Button();
             SuspendLayout();
             // 
-            // btnThreading1_Tasks
-            // 
-            btnThreading1_Tasks.BackColor = SystemColors.InfoText;
-            btnThreading1_Tasks.ForeColor = SystemColors.HighlightText;
-            btnThreading1_Tasks.Location = new Point(12, 56);
-            btnThreading1_Tasks.Name = "btnThreading1_Tasks";
-            btnThreading1_Tasks.Size = new Size(301, 29);
-            btnThreading1_Tasks.TabIndex = 0;
-            btnThreading1_Tasks.Text = "Threading1_Tasks";
-            btnThreading1_Tasks.UseVisualStyleBackColor = false;
-            btnThreading1_Tasks.Click += OnBtnThreading1_Tasks_Click;
-            // 
             // tbOutputBox
             // 
             tbOutputBox.AllowDrop = true;
@@ -68,15 +56,27 @@ namespace SeminarskaPraksa
             tbOutputBox.Multiline = true;
             tbOutputBox.Name = "tbOutputBox";
             tbOutputBox.ScrollBars = ScrollBars.Vertical;
-            tbOutputBox.Size = new Size(469, 526);
+            tbOutputBox.Size = new Size(566, 785);
             tbOutputBox.TabIndex = 1;
+            // 
+            // btnThreading1_Tasks
+            // 
+            btnThreading1_Tasks.BackColor = SystemColors.InfoText;
+            btnThreading1_Tasks.ForeColor = SystemColors.HighlightText;
+            btnThreading1_Tasks.Location = new Point(12, 121);
+            btnThreading1_Tasks.Name = "btnThreading1_Tasks";
+            btnThreading1_Tasks.Size = new Size(301, 29);
+            btnThreading1_Tasks.TabIndex = 0;
+            btnThreading1_Tasks.Text = "Threading1_Tasks";
+            btnThreading1_Tasks.UseVisualStyleBackColor = false;
+            btnThreading1_Tasks.Click += OnBtnThreading1_Tasks_Click;
             // 
             // btnThreading2_Timer
             // 
             btnThreading2_Timer.BackColor = SystemColors.InfoText;
             btnThreading2_Timer.ForeColor = SystemColors.HighlightText;
-            btnThreading2_Timer.Location = new Point(12, 91);
-            btnThreading2_Timer.Name = "Threading2_Timer";
+            btnThreading2_Timer.Location = new Point(12, 156);
+            btnThreading2_Timer.Name = "btnThreading2_Timer";
             btnThreading2_Timer.Size = new Size(301, 29);
             btnThreading2_Timer.TabIndex = 2;
             btnThreading2_Timer.Text = "Threading2_Timer";
@@ -87,7 +87,7 @@ namespace SeminarskaPraksa
             // 
             btnThreading3_Token.BackColor = SystemColors.InfoText;
             btnThreading3_Token.ForeColor = SystemColors.HighlightText;
-            btnThreading3_Token.Location = new Point(12, 126);
+            btnThreading3_Token.Location = new Point(12, 191);
             btnThreading3_Token.Name = "btnThreading3_Token";
             btnThreading3_Token.Size = new Size(301, 29);
             btnThreading3_Token.TabIndex = 3;
@@ -99,7 +99,7 @@ namespace SeminarskaPraksa
             // 
             btnThreading4_RaceCondition.BackColor = SystemColors.InfoText;
             btnThreading4_RaceCondition.ForeColor = SystemColors.HighlightText;
-            btnThreading4_RaceCondition.Location = new Point(12, 161);
+            btnThreading4_RaceCondition.Location = new Point(12, 226);
             btnThreading4_RaceCondition.Name = "btnThreading4_RaceCondition";
             btnThreading4_RaceCondition.Size = new Size(301, 29);
             btnThreading4_RaceCondition.TabIndex = 4;
@@ -107,35 +107,35 @@ namespace SeminarskaPraksa
             btnThreading4_RaceCondition.UseVisualStyleBackColor = false;
             btnThreading4_RaceCondition.Click += OnBtnThreading4_RaceCondition_Click;
             // 
-            // btnThreading5_TaskFactory
+            // btnThreading5_ProxyAndDecorator
             // 
-            btnThreading5_TaskFactory.BackColor = SystemColors.InfoText;
-            btnThreading5_TaskFactory.ForeColor = SystemColors.HighlightText;
-            btnThreading5_TaskFactory.Location = new Point(12, 196);
-            btnThreading5_TaskFactory.Name = "btnThreading5_TaskFactory";
-            btnThreading5_TaskFactory.Size = new Size(301, 29);
-            btnThreading5_TaskFactory.TabIndex = 5;
-            btnThreading5_TaskFactory.Text = "Threading5_TaskFactory";
-            btnThreading5_TaskFactory.UseVisualStyleBackColor = false;
-            btnThreading5_TaskFactory.Click += OnThreading5_TaskFactory_Click;
+            btnThreading5_ProxyAndDecorator.BackColor = SystemColors.InfoText;
+            btnThreading5_ProxyAndDecorator.ForeColor = SystemColors.HighlightText;
+            btnThreading5_ProxyAndDecorator.Location = new Point(12, 261);
+            btnThreading5_ProxyAndDecorator.Name = "btnThreading5_ProxyAndDecorator";
+            btnThreading5_ProxyAndDecorator.Size = new Size(301, 29);
+            btnThreading5_ProxyAndDecorator.TabIndex = 5;
+            btnThreading5_ProxyAndDecorator.Text = "Threading5_ProxyAndDecorator";
+            btnThreading5_ProxyAndDecorator.UseVisualStyleBackColor = false;
+            btnThreading5_ProxyAndDecorator.Click += OnThreading5_ProxyAndDecorator;
             // 
-            // button6
+            // btnThreading6_TaskBuilder
             // 
-            button6.BackColor = SystemColors.InfoText;
-            button6.ForeColor = SystemColors.HighlightText;
-            button6.Location = new Point(12, 231);
-            button6.Name = "button6";
-            button6.Size = new Size(301, 29);
-            button6.TabIndex = 6;
-            button6.Text = "button6";
-            button6.UseVisualStyleBackColor = false;
-            button6.Click += OnButton6_Click;
+            btnThreading6_TaskBuilder.BackColor = SystemColors.InfoText;
+            btnThreading6_TaskBuilder.ForeColor = SystemColors.HighlightText;
+            btnThreading6_TaskBuilder.Location = new Point(12, 296);
+            btnThreading6_TaskBuilder.Name = "btnThreading6_TaskBuilder";
+            btnThreading6_TaskBuilder.Size = new Size(301, 29);
+            btnThreading6_TaskBuilder.TabIndex = 6;
+            btnThreading6_TaskBuilder.Text = "Threading6_TaskBuilder";
+            btnThreading6_TaskBuilder.UseVisualStyleBackColor = false;
+            btnThreading6_TaskBuilder.Click += OnThreading6_TaskBuilder_Click;
             // 
             // button7
             // 
             button7.BackColor = SystemColors.InfoText;
             button7.ForeColor = SystemColors.HighlightText;
-            button7.Location = new Point(12, 266);
+            button7.Location = new Point(12, 331);
             button7.Name = "button7";
             button7.Size = new Size(301, 29);
             button7.TabIndex = 7;
@@ -147,7 +147,7 @@ namespace SeminarskaPraksa
             // 
             button8.BackColor = SystemColors.InfoText;
             button8.ForeColor = SystemColors.HighlightText;
-            button8.Location = new Point(12, 301);
+            button8.Location = new Point(12, 366);
             button8.Name = "button8";
             button8.Size = new Size(301, 29);
             button8.TabIndex = 8;
@@ -159,7 +159,7 @@ namespace SeminarskaPraksa
             // 
             button9.BackColor = SystemColors.InfoText;
             button9.ForeColor = SystemColors.HighlightText;
-            button9.Location = new Point(12, 336);
+            button9.Location = new Point(12, 401);
             button9.Name = "button9";
             button9.Size = new Size(301, 29);
             button9.TabIndex = 9;
@@ -171,7 +171,7 @@ namespace SeminarskaPraksa
             // 
             button10.BackColor = SystemColors.InfoText;
             button10.ForeColor = SystemColors.HighlightText;
-            button10.Location = new Point(12, 371);
+            button10.Location = new Point(12, 436);
             button10.Name = "button10";
             button10.Size = new Size(301, 29);
             button10.TabIndex = 10;
@@ -183,7 +183,7 @@ namespace SeminarskaPraksa
             // 
             button11.BackColor = SystemColors.InfoText;
             button11.ForeColor = SystemColors.HighlightText;
-            button11.Location = new Point(12, 406);
+            button11.Location = new Point(12, 471);
             button11.Name = "button11";
             button11.Size = new Size(301, 29);
             button11.TabIndex = 11;
@@ -195,7 +195,7 @@ namespace SeminarskaPraksa
             // 
             button12.BackColor = SystemColors.InfoText;
             button12.ForeColor = SystemColors.HighlightText;
-            button12.Location = new Point(12, 441);
+            button12.Location = new Point(12, 506);
             button12.Name = "button12";
             button12.Size = new Size(301, 29);
             button12.TabIndex = 12;
@@ -207,7 +207,7 @@ namespace SeminarskaPraksa
             // 
             button13.BackColor = SystemColors.InfoText;
             button13.ForeColor = SystemColors.HighlightText;
-            button13.Location = new Point(12, 476);
+            button13.Location = new Point(12, 541);
             button13.Name = "button13";
             button13.Size = new Size(301, 29);
             button13.TabIndex = 13;
@@ -219,7 +219,7 @@ namespace SeminarskaPraksa
             // 
             button14.BackColor = SystemColors.InfoText;
             button14.ForeColor = SystemColors.HighlightText;
-            button14.Location = new Point(12, 511);
+            button14.Location = new Point(12, 576);
             button14.Name = "button14";
             button14.Size = new Size(301, 29);
             button14.TabIndex = 14;
@@ -230,10 +230,11 @@ namespace SeminarskaPraksa
             // btnClearText
             // 
             btnClearText.BackColor = SystemColors.InfoText;
+            btnClearText.Font = new Font("Segoe UI", 12F);
             btnClearText.ForeColor = SystemColors.HighlightText;
-            btnClearText.Location = new Point(12, 12);
+            btnClearText.Location = new Point(12, 13);
             btnClearText.Name = "btnClearText";
-            btnClearText.Size = new Size(301, 29);
+            btnClearText.Size = new Size(301, 53);
             btnClearText.TabIndex = 15;
             btnClearText.Text = "CLEAR DISPLAY";
             btnClearText.UseVisualStyleBackColor = false;
@@ -244,7 +245,7 @@ namespace SeminarskaPraksa
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(800, 552);
+            ClientSize = new Size(897, 811);
             Controls.Add(btnClearText);
             Controls.Add(button14);
             Controls.Add(button13);
@@ -254,8 +255,8 @@ namespace SeminarskaPraksa
             Controls.Add(button9);
             Controls.Add(button8);
             Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(btnThreading5_TaskFactory);
+            Controls.Add(btnThreading6_TaskBuilder);
+            Controls.Add(btnThreading5_ProxyAndDecorator);
             Controls.Add(btnThreading4_RaceCondition);
             Controls.Add(btnThreading3_Token);
             Controls.Add(btnThreading2_Timer);
@@ -274,8 +275,8 @@ namespace SeminarskaPraksa
         private Button btnThreading2_Timer;
         private Button btnThreading3_Token;
         private Button btnThreading4_RaceCondition;
-        private Button btnThreading5_TaskFactory;
-        private Button button6;
+        private Button btnThreading5_ProxyAndDecorator;
+        private Button btnThreading6_TaskBuilder;
         private Button button7;
         private Button button8;
         private Button button9;

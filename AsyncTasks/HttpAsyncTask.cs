@@ -1,6 +1,6 @@
 ﻿namespace SeminarskaPraksa.AsyncTasks
 {
-    internal class HttpAsyncTask : ITasks
+    internal class HttpAsyncTask : IAsyncTask
     {
         public async Task<string> RunAsync()
         {

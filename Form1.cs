@@ -16,6 +16,7 @@ namespace SeminarskaPraksa
             tbOutputBox.BeginInvoke(new Action(() =>
             {
                 tbOutputBox.Text += text + Environment.NewLine;
+                tbOutputBox.Text += Environment.NewLine;
             }));
         }
         #endregion
@@ -46,26 +47,29 @@ namespace SeminarskaPraksa
             new Threading4_RaceCondition(PrintInTextbox, 15, 50);
         }
 
-        private async void OnThreading5_TaskFactory_Click(object sender, EventArgs e)
+        private async void OnThreading5_ProxyAndDecorator(object sender, EventArgs e)
         {
-            var task5 = new Threading5_TaskBuilder(PrintInTextbox);
-            await task5.StartTasks(
-                new List<ITasks>
+            var tasks5 = new Threading5_ProxyAndDecorator(
+                PrintInTextbox,
+                new HttpAsyncTask());
+
+            await tasks5.Start();
+        }
+
+        private async void OnThreading6_TaskBuilder_Click(object sender, EventArgs e)
+        {
+            var task6 = new Threading6_TaskBuilder(PrintInTextbox);
+            await task6.StartTasks(
+                new List<IAsyncTask>
                 {
                     new HttpAsyncTask(),
                     new HttpAsyncTask(),
                     new VeryLongTaskAsync()
-                }, 5); 
-        }
-
-        private void OnButton6_Click(object sender, EventArgs e)
-        {
-
+                }, 5);
         }
 
         private void OnButton7_Click(object sender, EventArgs e)
         {
-
         }
 
         private void OnButton8_Click(object sender, EventArgs e)
