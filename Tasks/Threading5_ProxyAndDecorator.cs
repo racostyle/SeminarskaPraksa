@@ -6,7 +6,7 @@ namespace SeminarskaPraksa.Tasks
 {
     internal class Threading5_ProxyAndDecorator
     {
-        private List<IAsyncTask> _asyncTasks;
+        private readonly List<IAsyncTask> _asyncTasks;
         private readonly Action<string> _writer;
         private readonly IAsyncTask[] _tasks;
 
@@ -23,28 +23,34 @@ namespace SeminarskaPraksa.Tasks
             await RunAllTasks();
             GenerateDecorators();
             await RunAllTasks();
-            //tukaj filtriraj rezultate iz po kategorijah
-
-            _writer("Primer Dekorator in Proxy združena");
+            GenerateDecoratorsInProxys();
+            await RunAllTasks();
         }
 
         private void GenerateProxys()
         {
             _writer("Primer proxy");
-            _asyncTasks = new List<IAsyncTask>();
+            _asyncTasks.Clear();
             foreach (var task in _tasks)
-            {
                 _asyncTasks.Add(new TaskProxy(task, _writer, new CheckNetworkWithPing()));
-            }
         }
 
         private void GenerateDecorators()
         {
             _writer("Primer Dekorator");
-            _asyncTasks = new List<IAsyncTask>();
+            _asyncTasks.Clear();
+            foreach (var task in _tasks)
+                _asyncTasks.Add(new TaskDecorator(task));
+        }
+
+        private void GenerateDecoratorsInProxys()
+        {
+            _writer("Primer Dekorator in Proxy združena");
+            _asyncTasks.Clear();
             foreach (var task in _tasks)
             {
-                _asyncTasks.Add(new TaskDecorator(task, _writer));
+                IAsyncTask decorator = new TaskDecorator(task);
+                _asyncTasks.Add(new TaskProxy(decorator, _writer, new CheckNetworkWithPing()));
             }
         }
 
@@ -52,11 +58,11 @@ namespace SeminarskaPraksa.Tasks
         {
             foreach (IAsyncTask task in _asyncTasks)
             {
-                await task.RunAsync();
+                var result = await task.RunAsync();
+                _writer(result);
             }
         }
     }
-
 
     internal class TaskProxy : IAsyncTask
     {
@@ -73,13 +79,17 @@ namespace SeminarskaPraksa.Tasks
 
         public async Task<string> RunAsync()
         {
-            while (!_checkNetwork.CanPing())
+            while (true)
             {
-                await Task.Delay(5000);
+                if (_checkNetwork.CanPing())
+                {
+                    _writer("Imamo internetno povezavo");
+                    break;
+                }
+                else
+                    await Task.Delay(5000);
             }
-            _writer("Imamo povezavo");
             var result = await _task.RunAsync();
-            _writer(result);
             return result;
         }
     }
@@ -87,19 +97,16 @@ namespace SeminarskaPraksa.Tasks
     internal class TaskDecorator : IAsyncTask
     {
         private readonly IAsyncTask _task;
-        private readonly Action<string> _writer;
 
-        public TaskDecorator(IAsyncTask task, Action<string> writer)
+        public TaskDecorator(IAsyncTask task)
         {
             _task = task;
-            _writer = writer;
         }
 
         public async Task<string> RunAsync()
         {
             var result = await _task.RunAsync();
             result = FilterResults(result);
-            _writer(result);
             return result;
         }
 
@@ -109,10 +116,8 @@ namespace SeminarskaPraksa.Tasks
             var filtered = result.Split(',');
 
             var sb = new StringBuilder();
-            foreach (string item in filtered )
-            {
+            foreach (string item in filtered)
                 sb.AppendLine(item.Trim());
-            }
             return sb.ToString();
         }
     }
