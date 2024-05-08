@@ -14,12 +14,20 @@ namespace SeminarskaPraksa.Tasks
         internal async Task StartTasks(List<IAsyncTask> tasks, int timeout)
         {
             _writer("Začetek");
-            var taskBuilder = new TaskBuilder(_writer);
-            List<Task> builtTasks = new List<Task>();
-            foreach (IAsyncTask task in tasks)
-                builtTasks.Add(taskBuilder.BuildTask(task, timeout));
 
-            await Task.WhenAll(builtTasks);
+            var taskBuilder = new TaskBuilder(_writer);
+            var builtTasks = taskBuilder.BuildTasks(tasks, timeout);
+
+            await Task.Delay(3000);
+
+            List<Task> runningTasks = new List<Task>();
+            foreach (var task in builtTasks)
+            {
+                runningTasks.Add(task.Value);
+            }
+
+            await Task.WhenAll(runningTasks);
+
             _writer("Konec");
         }
     }
@@ -32,43 +40,54 @@ namespace SeminarskaPraksa.Tasks
         {
             _writer = writer;
         }
-
-        internal async Task BuildTask(IAsyncTask task, int timeoutInSeconds)
+        internal List<Lazy<Task>> BuildTasks(List<IAsyncTask> tasks, int timeout)
         {
-            var tcs = new TaskCompletionSource<string>();
-            var cts = new CancellationTokenSource();
+            List<Lazy<Task>> createdTasks = new List<Lazy<Task>>();
+            foreach (IAsyncTask task in tasks)
+                createdTasks.Add(CreateTask(task, timeout));
+            return createdTasks;
+        }
 
-            _ = Task.Run(async () =>
+        private Lazy<Task> CreateTask(IAsyncTask task, int timeoutInSeconds)
+        {
+            return new Lazy<Task>(async () =>
             {
-                cts.CancelAfter(TimeSpan.FromSeconds(timeoutInSeconds));
+                var tcs = new TaskCompletionSource<string>();
+                var cts = new CancellationTokenSource();
 
-                var registration = cts.Token.Register(() =>
+                _ = Task.Run(async () =>
                 {
-                    if (!tcs.Task.IsCompleted)
+                    cts.CancelAfter(TimeSpan.FromSeconds(timeoutInSeconds));
+
+                    var registration = cts.Token.Register(() =>
                     {
-                        tcs.TrySetResult(string.Empty);
-                       _writer("Timeout!");
+                        if (!tcs.Task.IsCompleted)
+                        {
+                            tcs.TrySetResult(string.Empty);
+                            _writer("Timeout!");
+                        }
+                    });
+
+                    try
+                    {
+                        var result = await MainTaskAsync(task, tcs);
+                        _writer(result);
+                    }
+                    catch (Exception ex)
+                    {
+                        tcs.TrySetException(ex);
+                    }
+                    finally
+                    {
+                        registration.Dispose();
+                        cts.Dispose();
                     }
                 });
 
-                try
-                {
-                    var result = await MainTaskAsync(task, tcs);
-                    _writer(result);
-                }
-                catch (Exception ex)
-                {
-                    tcs.TrySetException(ex); 
-                }
-                finally
-                {
-                    registration.Dispose();
-                    cts.Dispose();
-                }
+                await tcs.Task;
             });
-
-            await tcs.Task;
         }
+
 
         private async Task<string> MainTaskAsync(IAsyncTask task, TaskCompletionSource<string> tcs)
         {
