@@ -36,7 +36,7 @@ namespace SeminarskaPraksa
             btnThreading4_RaceCondition = new Button();
             btnThreading5_ProxyAndDecorator = new Button();
             btnThreading6_TaskBuilder = new Button();
-            button7 = new Button();
+            btnThreading7_Barrier = new Button();
             button8 = new Button();
             button9 = new Button();
             button10 = new Button();
@@ -131,17 +131,17 @@ namespace SeminarskaPraksa
             btnThreading6_TaskBuilder.UseVisualStyleBackColor = false;
             btnThreading6_TaskBuilder.Click += OnThreading6_TaskBuilder_Click;
             // 
-            // button7
+            // btnThreading7_Barrier
             // 
-            button7.BackColor = SystemColors.InfoText;
-            button7.ForeColor = SystemColors.HighlightText;
-            button7.Location = new Point(12, 331);
-            button7.Name = "button7";
-            button7.Size = new Size(301, 29);
-            button7.TabIndex = 7;
-            button7.Text = "button7";
-            button7.UseVisualStyleBackColor = false;
-            button7.Click += OnButton7_Click;
+            btnThreading7_Barrier.BackColor = SystemColors.InfoText;
+            btnThreading7_Barrier.ForeColor = SystemColors.HighlightText;
+            btnThreading7_Barrier.Location = new Point(12, 331);
+            btnThreading7_Barrier.Name = "btnThreading7_Barrier";
+            btnThreading7_Barrier.Size = new Size(301, 29);
+            btnThreading7_Barrier.TabIndex = 7;
+            btnThreading7_Barrier.Text = "Threading7_Barrier";
+            btnThreading7_Barrier.UseVisualStyleBackColor = false;
+            btnThreading7_Barrier.Click += OnThreading7_Barrier_Click;
             // 
             // button8
             // 
@@ -254,7 +254,7 @@ namespace SeminarskaPraksa
             Controls.Add(button10);
             Controls.Add(button9);
             Controls.Add(button8);
-            Controls.Add(button7);
+            Controls.Add(btnThreading7_Barrier);
             Controls.Add(btnThreading6_TaskBuilder);
             Controls.Add(btnThreading5_ProxyAndDecorator);
             Controls.Add(btnThreading4_RaceCondition);
@@ -277,7 +277,7 @@ namespace SeminarskaPraksa
         private Button btnThreading4_RaceCondition;
         private Button btnThreading5_ProxyAndDecorator;
         private Button btnThreading6_TaskBuilder;
-        private Button button7;
+        private Button btnThreading7_Barrier;
         private Button button8;
         private Button button9;
         private Button button10;

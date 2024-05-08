@@ -70,8 +70,11 @@ namespace SeminarskaPraksa
                 }, 5);
         }
 
-        private void OnButton7_Click(object sender, EventArgs e)
+        private async void OnThreading7_Barrier_Click(object sender, EventArgs e)
         {
+            var logger = new TextBoxLogger(PrintInTextbox);
+            var tasks = new Threading7_Barrier(logger);
+            await tasks.Start();
         }
 
         private void OnButton8_Click(object sender, EventArgs e)
