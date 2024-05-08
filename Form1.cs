@@ -74,12 +74,13 @@ namespace SeminarskaPraksa
         {
             var logger = new TextBoxLogger(PrintInTextbox);
             var tasks = new Threading7_Barrier(logger);
-            await tasks.Start();
+            await tasks.Start(4);
         }
 
-        private void OnButton8_Click(object sender, EventArgs e)
+        private async void OnThreading8_Semaphore_Click(object sender, EventArgs e)
         {
-
+            var task = new Threading8_Semaphore(new TextBoxLogger(PrintInTextbox), 2);
+            await task.Start(5);
         }
 
         private void OnButton9_Click(object sender, EventArgs e)

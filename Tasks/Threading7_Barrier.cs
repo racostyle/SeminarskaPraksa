@@ -1,45 +1,66 @@
 ﻿using SeminarskaPraksa.Utilities;
+using System.Text;
 
 namespace SeminarskaPraksa.Tasks
 {
     internal class Threading7_Barrier
     {
+        private int _noOfTasks;
         private readonly TextBoxLogger _Logger;
+        private List<string> _messages;
+        StringBuilder _stringBuilder;
 
         public Threading7_Barrier(TextBoxLogger printInTextbox)
         {
             _Logger = printInTextbox;
+            _messages = new List<string>();
+            _stringBuilder = new StringBuilder();
         }
 
-        internal async Task Start()
+        internal async Task Start(int noOfTasks)
         {
-            int numberOfParticipants = 3;
-            Barrier barrier = new Barrier(numberOfParticipants, (b) =>
+            _noOfTasks = noOfTasks;
+
+            Barrier barrier = new Barrier(_noOfTasks, (b) =>
             {
-                _Logger.Log($"Phase {b.CurrentPhaseNumber} is completed.");
+                _Logger.Log($"Faza {b.CurrentPhaseNumber + 1} končana");
             });
 
-            Task[] tasks = new Task[numberOfParticipants];
+            Task[] tasks = new Task[_noOfTasks];
 
-            for (int i = 0; i < numberOfParticipants; i++)
+            for (int i = 0; i < _noOfTasks; i++)
             {
                 int localCopy = i;
                 tasks[i] = Task.Run(async () =>
                 {
-                    _Logger.Log($"Task {localCopy} is starting phase 1.");
+                    LoggerAccess($"Naloga {localCopy} začenja z fazo 1");
                     await Task.Delay(1000 * localCopy);
                     barrier.SignalAndWait();
 
-                    _Logger.Log($"Task {localCopy} is starting phase 2.");
-                    await Task.Delay(1000 * (numberOfParticipants - localCopy));
+                    LoggerAccess($"Naloga {localCopy} začenja z fazo 2");
+                    await Task.Delay(1000 * (_noOfTasks - localCopy));
                     barrier.SignalAndWait();
 
-                    _Logger.Log($"Task {localCopy} is finished.");
+                    LoggerAccess($"Naloga {localCopy} Končana");
                 });
             }
 
             await Task.WhenAll(tasks);
-            _Logger.Log("All tasks completed.");
+            _Logger.Log("Vse naloge končane");
+        }
+
+        private void LoggerAccess(string message)
+        {
+            _messages.Add(message);
+            if (_messages.Count == _noOfTasks)
+            {
+                foreach (var item in _messages)
+                    _stringBuilder.AppendLine(item);
+                _Logger.Log(_stringBuilder.ToString());
+
+                _stringBuilder.Clear();
+                _messages.Clear();
+            }
         }
     }
 }
