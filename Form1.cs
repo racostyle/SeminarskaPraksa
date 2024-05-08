@@ -1,5 +1,6 @@
 ﻿using SeminarskaPraksa.AsyncTasks;
 using SeminarskaPraksa.Tasks;
+using SeminarskaPraksa.Utilities;
 
 namespace SeminarskaPraksa
 {
@@ -51,7 +52,8 @@ namespace SeminarskaPraksa
         {
             var tasks5 = new Threading5_ProxyAndDecorator(
                 PrintInTextbox,
-                new HttpAsyncTask());
+                new CheckNetworkWithPing(),
+                new HttpAsyncTask()); ;
 
             await tasks5.Start();
         }

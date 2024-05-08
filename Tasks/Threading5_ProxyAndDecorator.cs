@@ -8,11 +8,13 @@ namespace SeminarskaPraksa.Tasks
     {
         private readonly List<IAsyncTask> _asyncTasks;
         private readonly Action<string> _writer;
+        private readonly CheckNetworkWithPing _checkNetworkWithPing;
         private readonly IAsyncTask[] _tasks;
 
-        public Threading5_ProxyAndDecorator(Action<string> writer, params IAsyncTask[] tasks)
+        public Threading5_ProxyAndDecorator(Action<string> writer, CheckNetworkWithPing checkNetworkWithPing, params IAsyncTask[] tasks)
         {
             _writer = writer;
+            _checkNetworkWithPing = checkNetworkWithPing;
             _tasks = tasks;
             _asyncTasks = new List<IAsyncTask>();
         }
@@ -32,7 +34,7 @@ namespace SeminarskaPraksa.Tasks
             _writer("Primer proxy");
             _asyncTasks.Clear();
             foreach (var task in _tasks)
-                _asyncTasks.Add(new TaskProxy(task, _writer, new CheckNetworkWithPing()));
+                _asyncTasks.Add(new TaskProxy(task, _writer, _checkNetworkWithPing));
         }
 
         private void GenerateDecorators()
@@ -50,7 +52,7 @@ namespace SeminarskaPraksa.Tasks
             foreach (var task in _tasks)
             {
                 IAsyncTask decorator = new TaskDecorator(task);
-                _asyncTasks.Add(new TaskProxy(decorator, _writer, new CheckNetworkWithPing()));
+                _asyncTasks.Add(new TaskProxy(decorator, _writer, _checkNetworkWithPing));
             }
         }
 
