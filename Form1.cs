@@ -83,9 +83,9 @@ namespace SeminarskaPraksa
             await task.Start(5);
         }
 
-        private void OnButton9_Click(object sender, EventArgs e)
+        private void OnThreading9_TasksInForms_Click(object sender, EventArgs e)
         {
-
+            new Threading9_TasksInForms(new TextBoxLogger(PrintInTextbox), tbOutputBox);
         }
 
         private void OnButton10_Click(object sender, EventArgs e)

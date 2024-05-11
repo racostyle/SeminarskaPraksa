@@ -38,7 +38,7 @@ namespace SeminarskaPraksa
             btnThreading6_TaskBuilder = new Button();
             btnThreading7_Barrier = new Button();
             btnThreading8_Semaphore = new Button();
-            button9 = new Button();
+            btnThreading9_TasksInForms = new Button();
             button10 = new Button();
             button11 = new Button();
             button12 = new Button();
@@ -155,17 +155,17 @@ namespace SeminarskaPraksa
             btnThreading8_Semaphore.UseVisualStyleBackColor = false;
             btnThreading8_Semaphore.Click += OnThreading8_Semaphore_Click;
             // 
-            // button9
+            // btnThreading9_TasksInForms
             // 
-            button9.BackColor = SystemColors.InfoText;
-            button9.ForeColor = SystemColors.HighlightText;
-            button9.Location = new Point(12, 401);
-            button9.Name = "button9";
-            button9.Size = new Size(301, 29);
-            button9.TabIndex = 9;
-            button9.Text = "button9";
-            button9.UseVisualStyleBackColor = false;
-            button9.Click += OnButton9_Click;
+            btnThreading9_TasksInForms.BackColor = SystemColors.InfoText;
+            btnThreading9_TasksInForms.ForeColor = SystemColors.HighlightText;
+            btnThreading9_TasksInForms.Location = new Point(12, 401);
+            btnThreading9_TasksInForms.Name = "btnThreading9_TasksInForms";
+            btnThreading9_TasksInForms.Size = new Size(301, 29);
+            btnThreading9_TasksInForms.TabIndex = 9;
+            btnThreading9_TasksInForms.Text = "Threading9_TasksInForms";
+            btnThreading9_TasksInForms.UseVisualStyleBackColor = false;
+            btnThreading9_TasksInForms.Click += OnThreading9_TasksInForms_Click;
             // 
             // button10
             // 
@@ -252,7 +252,7 @@ namespace SeminarskaPraksa
             Controls.Add(button12);
             Controls.Add(button11);
             Controls.Add(button10);
-            Controls.Add(button9);
+            Controls.Add(btnThreading9_TasksInForms);
             Controls.Add(btnThreading8_Semaphore);
             Controls.Add(btnThreading7_Barrier);
             Controls.Add(btnThreading6_TaskBuilder);
@@ -279,7 +279,7 @@ namespace SeminarskaPraksa
         private Button btnThreading6_TaskBuilder;
         private Button btnThreading7_Barrier;
         private Button btnThreading8_Semaphore;
-        private Button button9;
+        private Button btnThreading9_TasksInForms;
         private Button button10;
         private Button button11;
         private Button button12;
