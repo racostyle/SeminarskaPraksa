@@ -1,4 +1,6 @@
 ﻿
+using SeminarskaPraksa.Assets;
+
 namespace SeminarskaPraksa
 {
     partial class Form1
@@ -29,39 +31,40 @@ namespace SeminarskaPraksa
         /// </summary>
         private void InitializeComponent()
         {
-            tbOutputBox = new TextBox();
-            btnThreading1_Tasks = new Button();
-            btnThreading2_Timer = new Button();
-            btnThreading3_Token = new Button();
-            btnThreading4_RaceCondition = new Button();
-            btnThreading5_ProxyAndDecorator = new Button();
-            btnThreading6_TaskBuilder = new Button();
-            btnThreading7_Barrier = new Button();
-            btnThreading8_Semaphore = new Button();
-            btnThreading9_TasksInForms = new Button();
-            button10 = new Button();
-            button11 = new Button();
-            button12 = new Button();
-            button13 = new Button();
-            button14 = new Button();
-            btnClearText = new Button();
+            tbOutputBox = new DarkTextBox();
+            btnThreading1_Tasks = new DarkButton();
+            btnThreading2_Timer = new DarkButton();
+            btnThreading3_Token = new DarkButton();
+            btnThreading4_RaceCondition = new DarkButton();
+            btnThreading5_ProxyAndDecorator = new DarkButton();
+            btnThreading6_TaskBuilder = new DarkButton();
+            btnThreading7_Barrier = new DarkButton();
+            btnThreading8_Semaphore = new DarkButton();
+            btnThreading9_TasksInForms = new DarkButton();
+            btnClearText = new DarkButton();
             SuspendLayout();
             // 
             // tbOutputBox
             // 
             tbOutputBox.AllowDrop = true;
             tbOutputBox.BackColor = SystemColors.InfoText;
+            tbOutputBox.BorderColor = Color.FromArgb(70, 70, 70);
+            tbOutputBox.BorderStyle = BorderStyle.FixedSingle;
+            tbOutputBox.Font = new Font("Arial", 9F);
             tbOutputBox.ForeColor = SystemColors.Window;
             tbOutputBox.Location = new Point(319, 14);
             tbOutputBox.Multiline = true;
             tbOutputBox.Name = "tbOutputBox";
             tbOutputBox.ScrollBars = ScrollBars.Vertical;
-            tbOutputBox.Size = new Size(566, 785);
+            tbOutputBox.Size = new Size(566, 471);
             tbOutputBox.TabIndex = 1;
             // 
             // btnThreading1_Tasks
             // 
             btnThreading1_Tasks.BackColor = SystemColors.InfoText;
+            btnThreading1_Tasks.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading1_Tasks.FlatStyle = FlatStyle.Flat;
+            btnThreading1_Tasks.Font = new Font("Arial", 8F);
             btnThreading1_Tasks.ForeColor = SystemColors.HighlightText;
             btnThreading1_Tasks.Location = new Point(12, 121);
             btnThreading1_Tasks.Name = "btnThreading1_Tasks";
@@ -74,6 +77,9 @@ namespace SeminarskaPraksa
             // btnThreading2_Timer
             // 
             btnThreading2_Timer.BackColor = SystemColors.InfoText;
+            btnThreading2_Timer.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading2_Timer.FlatStyle = FlatStyle.Flat;
+            btnThreading2_Timer.Font = new Font("Arial", 8F);
             btnThreading2_Timer.ForeColor = SystemColors.HighlightText;
             btnThreading2_Timer.Location = new Point(12, 156);
             btnThreading2_Timer.Name = "btnThreading2_Timer";
@@ -86,6 +92,9 @@ namespace SeminarskaPraksa
             // btnThreading3_Token
             // 
             btnThreading3_Token.BackColor = SystemColors.InfoText;
+            btnThreading3_Token.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading3_Token.FlatStyle = FlatStyle.Flat;
+            btnThreading3_Token.Font = new Font("Arial", 8F);
             btnThreading3_Token.ForeColor = SystemColors.HighlightText;
             btnThreading3_Token.Location = new Point(12, 191);
             btnThreading3_Token.Name = "btnThreading3_Token";
@@ -98,6 +107,9 @@ namespace SeminarskaPraksa
             // btnThreading4_RaceCondition
             // 
             btnThreading4_RaceCondition.BackColor = SystemColors.InfoText;
+            btnThreading4_RaceCondition.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading4_RaceCondition.FlatStyle = FlatStyle.Flat;
+            btnThreading4_RaceCondition.Font = new Font("Arial", 8F);
             btnThreading4_RaceCondition.ForeColor = SystemColors.HighlightText;
             btnThreading4_RaceCondition.Location = new Point(12, 226);
             btnThreading4_RaceCondition.Name = "btnThreading4_RaceCondition";
@@ -110,6 +122,9 @@ namespace SeminarskaPraksa
             // btnThreading5_ProxyAndDecorator
             // 
             btnThreading5_ProxyAndDecorator.BackColor = SystemColors.InfoText;
+            btnThreading5_ProxyAndDecorator.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading5_ProxyAndDecorator.FlatStyle = FlatStyle.Flat;
+            btnThreading5_ProxyAndDecorator.Font = new Font("Arial", 8F);
             btnThreading5_ProxyAndDecorator.ForeColor = SystemColors.HighlightText;
             btnThreading5_ProxyAndDecorator.Location = new Point(12, 261);
             btnThreading5_ProxyAndDecorator.Name = "btnThreading5_ProxyAndDecorator";
@@ -122,6 +137,9 @@ namespace SeminarskaPraksa
             // btnThreading6_TaskBuilder
             // 
             btnThreading6_TaskBuilder.BackColor = SystemColors.InfoText;
+            btnThreading6_TaskBuilder.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading6_TaskBuilder.FlatStyle = FlatStyle.Flat;
+            btnThreading6_TaskBuilder.Font = new Font("Arial", 8F);
             btnThreading6_TaskBuilder.ForeColor = SystemColors.HighlightText;
             btnThreading6_TaskBuilder.Location = new Point(12, 296);
             btnThreading6_TaskBuilder.Name = "btnThreading6_TaskBuilder";
@@ -134,6 +152,9 @@ namespace SeminarskaPraksa
             // btnThreading7_Barrier
             // 
             btnThreading7_Barrier.BackColor = SystemColors.InfoText;
+            btnThreading7_Barrier.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading7_Barrier.FlatStyle = FlatStyle.Flat;
+            btnThreading7_Barrier.Font = new Font("Arial", 8F);
             btnThreading7_Barrier.ForeColor = SystemColors.HighlightText;
             btnThreading7_Barrier.Location = new Point(12, 331);
             btnThreading7_Barrier.Name = "btnThreading7_Barrier";
@@ -146,6 +167,9 @@ namespace SeminarskaPraksa
             // btnThreading8_Semaphore
             // 
             btnThreading8_Semaphore.BackColor = SystemColors.InfoText;
+            btnThreading8_Semaphore.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading8_Semaphore.FlatStyle = FlatStyle.Flat;
+            btnThreading8_Semaphore.Font = new Font("Arial", 8F);
             btnThreading8_Semaphore.ForeColor = SystemColors.HighlightText;
             btnThreading8_Semaphore.Location = new Point(12, 366);
             btnThreading8_Semaphore.Name = "btnThreading8_Semaphore";
@@ -158,6 +182,9 @@ namespace SeminarskaPraksa
             // btnThreading9_TasksInForms
             // 
             btnThreading9_TasksInForms.BackColor = SystemColors.InfoText;
+            btnThreading9_TasksInForms.BorderColor = Color.FromArgb(70, 70, 70);
+            btnThreading9_TasksInForms.FlatStyle = FlatStyle.Flat;
+            btnThreading9_TasksInForms.Font = new Font("Arial", 8F);
             btnThreading9_TasksInForms.ForeColor = SystemColors.HighlightText;
             btnThreading9_TasksInForms.Location = new Point(12, 401);
             btnThreading9_TasksInForms.Name = "btnThreading9_TasksInForms";
@@ -167,69 +194,11 @@ namespace SeminarskaPraksa
             btnThreading9_TasksInForms.UseVisualStyleBackColor = false;
             btnThreading9_TasksInForms.Click += OnThreading9_TasksInForms_Click;
             // 
-            // button10
-            // 
-            button10.BackColor = SystemColors.InfoText;
-            button10.ForeColor = SystemColors.HighlightText;
-            button10.Location = new Point(12, 436);
-            button10.Name = "button10";
-            button10.Size = new Size(301, 29);
-            button10.TabIndex = 10;
-            button10.Text = "button10";
-            button10.UseVisualStyleBackColor = false;
-            button10.Click += OnButton10_Click;
-            // 
-            // button11
-            // 
-            button11.BackColor = SystemColors.InfoText;
-            button11.ForeColor = SystemColors.HighlightText;
-            button11.Location = new Point(12, 471);
-            button11.Name = "button11";
-            button11.Size = new Size(301, 29);
-            button11.TabIndex = 11;
-            button11.Text = "button11";
-            button11.UseVisualStyleBackColor = false;
-            button11.Click += OnButton11_Click;
-            // 
-            // button12
-            // 
-            button12.BackColor = SystemColors.InfoText;
-            button12.ForeColor = SystemColors.HighlightText;
-            button12.Location = new Point(12, 506);
-            button12.Name = "button12";
-            button12.Size = new Size(301, 29);
-            button12.TabIndex = 12;
-            button12.Text = "button12";
-            button12.UseVisualStyleBackColor = false;
-            button12.Click += OnButton12_Click;
-            // 
-            // button13
-            // 
-            button13.BackColor = SystemColors.InfoText;
-            button13.ForeColor = SystemColors.HighlightText;
-            button13.Location = new Point(12, 541);
-            button13.Name = "button13";
-            button13.Size = new Size(301, 29);
-            button13.TabIndex = 13;
-            button13.Text = "button13";
-            button13.UseVisualStyleBackColor = false;
-            button13.Click += OnButton13_Click;
-            // 
-            // button14
-            // 
-            button14.BackColor = SystemColors.InfoText;
-            button14.ForeColor = SystemColors.HighlightText;
-            button14.Location = new Point(12, 576);
-            button14.Name = "button14";
-            button14.Size = new Size(301, 29);
-            button14.TabIndex = 14;
-            button14.Text = "button14";
-            button14.UseVisualStyleBackColor = false;
-            button14.Click += OnButton14_Click;
-            // 
             // btnClearText
             // 
             btnClearText.BackColor = SystemColors.InfoText;
+            btnClearText.BorderColor = Color.FromArgb(70, 70, 70);
+            btnClearText.FlatStyle = FlatStyle.Flat;
             btnClearText.Font = new Font("Segoe UI", 12F);
             btnClearText.ForeColor = SystemColors.HighlightText;
             btnClearText.Location = new Point(12, 13);
@@ -245,13 +214,8 @@ namespace SeminarskaPraksa
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
-            ClientSize = new Size(897, 811);
+            ClientSize = new Size(897, 497);
             Controls.Add(btnClearText);
-            Controls.Add(button14);
-            Controls.Add(button13);
-            Controls.Add(button12);
-            Controls.Add(button11);
-            Controls.Add(button10);
             Controls.Add(btnThreading9_TasksInForms);
             Controls.Add(btnThreading8_Semaphore);
             Controls.Add(btnThreading7_Barrier);
@@ -269,21 +233,16 @@ namespace SeminarskaPraksa
         }
         #endregion
 
-        private TextBox tbOutputBox;
-        private Button btnClearText;
-        private Button btnThreading1_Tasks;
-        private Button btnThreading2_Timer;
-        private Button btnThreading3_Token;
-        private Button btnThreading4_RaceCondition;
-        private Button btnThreading5_ProxyAndDecorator;
-        private Button btnThreading6_TaskBuilder;
-        private Button btnThreading7_Barrier;
-        private Button btnThreading8_Semaphore;
-        private Button btnThreading9_TasksInForms;
-        private Button button10;
-        private Button button11;
-        private Button button12;
-        private Button button13;
-        private Button button14;
+        private DarkTextBox tbOutputBox;
+        private DarkButton btnClearText;
+        private DarkButton btnThreading1_Tasks;
+        private DarkButton btnThreading2_Timer;
+        private DarkButton btnThreading3_Token;
+        private DarkButton btnThreading4_RaceCondition;
+        private DarkButton btnThreading5_ProxyAndDecorator;
+        private DarkButton btnThreading6_TaskBuilder;
+        private DarkButton btnThreading7_Barrier;
+        private DarkButton btnThreading8_Semaphore;
+        private DarkButton btnThreading9_TasksInForms;
     }
 }

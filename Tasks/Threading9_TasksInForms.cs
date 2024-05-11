@@ -16,6 +16,7 @@ namespace SeminarskaPraksa.Tasks
             _textBoxLogger.Log("Threading9_TasksInForms Started");
             ColorTextBox();
             SimulateLoading();
+            Task.Run(RunAsyncInVoidMethod);
         }
 
         #region INVOKE METHODS
@@ -47,7 +48,6 @@ namespace SeminarskaPraksa.Tasks
                 TextBoxAccess(oldColor);
                 _textBoxLogger.Log("Recolor end");
             });
-            
         }
 
         private void SimulateLoading()
@@ -63,6 +63,21 @@ namespace SeminarskaPraksa.Tasks
                 }
                 _textBoxLogger.Log("Simulate loading done");
             });
+        }
+
+        private async Task RunAsyncInVoidMethod()
+        {
+            await Task.Delay(400);
+            var oldColor = _tbOutputBox.BackColor;
+            var rnd = new Random();
+            int counter = 0;
+            while (counter < 25)
+            {
+                counter++;
+                await Task.Delay(100);
+                TextBoxAccess(Color.FromArgb(rnd.Next(0, 75), rnd.Next(0, 75), rnd.Next(0, 75)));
+            }
+            TextBoxAccess(oldColor);
         }
     }
 }

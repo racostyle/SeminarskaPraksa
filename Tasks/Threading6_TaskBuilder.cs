@@ -27,7 +27,6 @@ namespace SeminarskaPraksa.Tasks
             }
 
             await Task.WhenAll(runningTasks);
-
             _writer("Konec");
         }
     }
@@ -83,7 +82,6 @@ namespace SeminarskaPraksa.Tasks
                         cts.Dispose();
                     }
                 });
-
                 await tcs.Task;
             });
         }
