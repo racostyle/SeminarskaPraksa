@@ -2,7 +2,7 @@
 {
     internal class HttpAsyncTask : IAsyncTask
     {
-        public async Task<string> RunAsync()
+        public async Task<string> RunAsync(string input = "")
         {
             using (var client = new HttpClient())
             {

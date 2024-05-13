@@ -1,6 +1,7 @@
 ﻿using SeminarskaPraksa.AsyncTasks;
 using SeminarskaPraksa.Tasks;
 using SeminarskaPraksa.Utilities;
+using SqlModule;
 
 namespace SeminarskaPraksa
 {
@@ -9,6 +10,16 @@ namespace SeminarskaPraksa
         public Form1()
         {
             InitializeComponent();
+
+            var connectionString = "Server=DESKTOP-L0IMJSI\\SQLEXPRESS; Database=AdventureWorks2022; Integrated Security=True;";
+
+            var sql = new SqlAsyncTask(connectionString);
+            string result = "";
+            var task = Task.Run(async () =>
+            {
+                result = await sql.RunAsync("SELECT FirstName, LastName FROM Person.Person;");
+            });
+            Task.WhenAll(task).Wait();
         }
 
         #region Print in TextBox

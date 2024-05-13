@@ -2,6 +2,6 @@
 {
     internal interface IAsyncTask
     {
-        Task<string> RunAsync();
+        Task<string> RunAsync(string input = "");
     }
 }

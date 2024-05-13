@@ -79,7 +79,7 @@ namespace SeminarskaPraksa.Tasks
             _checkNetwork = checkNetworkWithPing;
         }
 
-        public async Task<string> RunAsync()
+        public async Task<string> RunAsync(string input = "")
         {
             while (true)
             {
@@ -105,7 +105,7 @@ namespace SeminarskaPraksa.Tasks
             _task = task;
         }
 
-        public async Task<string> RunAsync()
+        public async Task<string> RunAsync(string input = "")
         {
             var result = await _task.RunAsync();
             result = FilterResults(result);
