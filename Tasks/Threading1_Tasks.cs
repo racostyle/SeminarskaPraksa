@@ -1,4 +1,6 @@
-﻿namespace SeminarskaPraksa.Tasks
+﻿using System.Reflection;
+
+namespace SeminarskaPraksa.Tasks
 {
     internal class Threading1_Tasks
     {
@@ -17,6 +19,7 @@
             _printInTextbox("SimpleTaskAsync start");
             SimpleTaskAsync(1000);
         }
+
         #region TIMER
         private void SimpleCounter(int timerTick, int timerLimit)
         {

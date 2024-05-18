@@ -11,15 +11,15 @@ namespace SeminarskaPraksa
         {
             InitializeComponent();
 
-            var connectionString = "Server=DESKTOP-L0IMJSI\\SQLEXPRESS; Database=AdventureWorks2022; Integrated Security=True;";
+            //var connectionString = "Server=DESKTOP-L0IMJSI\\SQLEXPRESS; Database=AdventureWorks2022; Integrated Security=True;";
 
-            var sql = new SqlAsyncTask(connectionString);
-            string result = "";
-            var task = Task.Run(async () =>
-            {
-                result = await sql.RunAsync("SELECT FirstName, LastName FROM Person.Person;");
-            });
-            Task.WhenAll(task).Wait();
+            //var sql = new SqlAsyncTask(connectionString);
+            //string result = "";
+            //var task = Task.Run(async () =>
+            //{
+            //    result = await sql.RunAsync("SELECT FirstName, LastName FROM Person.Person;");
+            //});
+            //Task.WhenAll(task).Wait();
         }
 
         #region Print in TextBox
@@ -28,7 +28,6 @@ namespace SeminarskaPraksa
             tbOutputBox.BeginInvoke(new Action(() =>
             {
                 tbOutputBox.Text += text + Environment.NewLine;
-                tbOutputBox.Text += Environment.NewLine;
             }));
         }
         #endregion
@@ -99,9 +98,14 @@ namespace SeminarskaPraksa
             new Threading9_TasksInForms(new TextBoxLogger(PrintInTextbox), tbOutputBox);
         }
 
-        private void OnButton10_Click(object sender, EventArgs e)
+        private void OnSemaphoreInjectionWrapper_Click(object sender, EventArgs e)
         {
-
+            Task.Run(async () => 
+            {
+                var example = new Threadingx10_SemaphoreInjectionWrapper(new TextBoxLogger(PrintInTextbox));
+                await example.ExecuteAsync(2);
+            });
+            
         }
 
         private void OnButton11_Click(object sender, EventArgs e)

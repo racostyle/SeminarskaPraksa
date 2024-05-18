@@ -42,6 +42,7 @@ namespace SeminarskaPraksa
             btnThreading8_Semaphore = new DarkButton();
             btnThreading9_TasksInForms = new DarkButton();
             btnClearText = new DarkButton();
+            btnSemaphoreInjectionWrapper = new DarkButton();
             SuspendLayout();
             // 
             // tbOutputBox
@@ -209,12 +210,28 @@ namespace SeminarskaPraksa
             btnClearText.UseVisualStyleBackColor = false;
             btnClearText.Click += OnBtnClearText_Click;
             // 
+            // btnSemaphoreInjectionWrapper
+            // 
+            btnSemaphoreInjectionWrapper.BackColor = SystemColors.InfoText;
+            btnSemaphoreInjectionWrapper.BorderColor = Color.FromArgb(70, 70, 70);
+            btnSemaphoreInjectionWrapper.FlatStyle = FlatStyle.Flat;
+            btnSemaphoreInjectionWrapper.Font = new Font("Arial", 8F);
+            btnSemaphoreInjectionWrapper.ForeColor = SystemColors.HighlightText;
+            btnSemaphoreInjectionWrapper.Location = new Point(12, 436);
+            btnSemaphoreInjectionWrapper.Name = "btnSemaphoreInjectionWrapper";
+            btnSemaphoreInjectionWrapper.Size = new Size(301, 29);
+            btnSemaphoreInjectionWrapper.TabIndex = 16;
+            btnSemaphoreInjectionWrapper.Text = "SemaphoreInjectionWrapper";
+            btnSemaphoreInjectionWrapper.UseVisualStyleBackColor = false;
+            btnSemaphoreInjectionWrapper.Click += OnSemaphoreInjectionWrapper_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.WindowFrame;
             ClientSize = new Size(897, 497);
+            Controls.Add(btnSemaphoreInjectionWrapper);
             Controls.Add(btnClearText);
             Controls.Add(btnThreading9_TasksInForms);
             Controls.Add(btnThreading8_Semaphore);
@@ -244,5 +261,6 @@ namespace SeminarskaPraksa
         private DarkButton btnThreading7_Barrier;
         private DarkButton btnThreading8_Semaphore;
         private DarkButton btnThreading9_TasksInForms;
+        private DarkButton btnSemaphoreInjectionWrapper;
     }
 }
