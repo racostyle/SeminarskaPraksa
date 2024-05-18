@@ -1,17 +1,22 @@
-﻿namespace SeminarskaPraksa.Utilities
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace SeminarskaPraksa.Utilities
 {
     internal class TextBoxLogger
     {
-        private Action<string> _printInTextbox;
+        private readonly TextBox _textBox;
 
-        public TextBoxLogger(Action<string> printInTextbox)
+        public TextBoxLogger(TextBox textBox)
         {
-            _printInTextbox = printInTextbox;
+            _textBox = textBox;
         }
 
         internal void Log(string message)
         {
-            _printInTextbox(message);
+            _textBox.BeginInvoke(new Action(() =>
+            {
+                _textBox.Text += message + Environment.NewLine;
+            }));
         }
     }
 }

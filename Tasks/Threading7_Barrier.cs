@@ -10,9 +10,9 @@ namespace SeminarskaPraksa.Tasks
         private List<string> _messages;
         StringBuilder _stringBuilder;
 
-        public Threading7_Barrier(TextBoxLogger printInTextbox)
+        public Threading7_Barrier(TextBoxLogger logger)
         {
-            _Logger = printInTextbox;
+            _Logger = logger;
             _messages = new List<string>();
             _stringBuilder = new StringBuilder();
         }

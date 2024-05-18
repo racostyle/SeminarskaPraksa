@@ -82,27 +82,27 @@ namespace SeminarskaPraksa
 
         private async void OnThreading7_Barrier_Click(object sender, EventArgs e)
         {
-            var logger = new TextBoxLogger(PrintInTextbox);
+            var logger = new TextBoxLogger(tbOutputBox);
             var tasks = new Threading7_Barrier(logger);
             await tasks.Start(4);
         }
 
         private async void OnThreading8_Semaphore_Click(object sender, EventArgs e)
         {
-            var task = new Threading8_Semaphore(new TextBoxLogger(PrintInTextbox), 2);
+            var task = new Threading8_Semaphore(new TextBoxLogger(tbOutputBox), 2);
             await task.Start(5);
         }
 
         private void OnThreading9_TasksInForms_Click(object sender, EventArgs e)
         {
-            new Threading9_TasksInForms(new TextBoxLogger(PrintInTextbox), tbOutputBox);
+            new Threading9_TasksInForms(new TextBoxLogger(tbOutputBox), tbOutputBox);
         }
 
         private void OnSemaphoreInjectionWrapper_Click(object sender, EventArgs e)
         {
             Task.Run(async () => 
             {
-                var example = new Threadingx10_SemaphoreInjectionWrapper(new TextBoxLogger(PrintInTextbox));
+                var example = new Threadingx10_SemaphoreInjectionWrapper(new TextBoxLogger(tbOutputBox));
                 await example.ExecuteAsync(2);
             });
             

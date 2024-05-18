@@ -1,4 +1,5 @@
 ﻿
+using SeminarskaPraksa.Utilities;
 using System.Threading.Tasks;
 
 namespace SeminarskaPraksa.Tasks
@@ -7,17 +8,17 @@ namespace SeminarskaPraksa.Tasks
     {
         private int counter = 0;
 
-        public Threading4_RaceCondition(Action<string> writer, int noOfThreads, int limit)
+        public Threading4_RaceCondition(TextBoxLogger logger, int noOfThreads, int limit)
         {
-            RaceCondition(writer, noOfThreads, limit);
-            AsyncRaceConditionPrimer(writer, noOfThreads, limit);
-            LockPrimer(writer, noOfThreads, limit);
+            RaceCondition(logger, noOfThreads, limit);
+            AsyncRaceConditionPrimer(logger, noOfThreads, limit);
+            LockPrimer(logger, noOfThreads, limit);
         }
 
-        private void RaceCondition(Action<string> printInTextbox, int noOfThreads, int limit)
+        private void RaceCondition(TextBoxLogger logger, int noOfThreads, int limit)
         {
             counter = 0;
-            printInTextbox("Primer 'race condition'");
+            logger.Log("Primer 'race condition'");
             List<Task> tasks = new List<Task>();
             for (int i = 0; i < noOfThreads; i++)
             {
@@ -27,18 +28,18 @@ namespace SeminarskaPraksa.Tasks
                     {
                         counter++;
                     }
-                    printInTextbox($"Vrednost spremenljivke po zanki: {counter}");
+                    logger.Log($"Vrednost spremenljivke po zanki: {counter}");
                 }));
             }
 
             Task.WaitAll(tasks.ToArray());
         }
 
-        private void AsyncRaceConditionPrimer(Action<string> printInTextbox, int noOfThreads, int limit)
+        private void AsyncRaceConditionPrimer(TextBoxLogger logger, int noOfThreads, int limit)
         {
             counter = 0;
 
-            printInTextbox("Primer 'AsyncRaceCondition'");
+            logger.Log("Primer 'AsyncRaceCondition'");
             List<Task> tasks = new List<Task>();
             for (int i = 0; i < noOfThreads; i++)
             {
@@ -49,19 +50,19 @@ namespace SeminarskaPraksa.Tasks
                         await Task.Delay(25);
                         counter++;
                     }
-                    printInTextbox($"Vrednost spremenljivke po zanki: {counter}");
+                    logger.Log($"Vrednost spremenljivke po zanki: {counter}");
                 }));
             }
 
             Task.WaitAll(tasks.ToArray());
         }
 
-        private void LockPrimer(Action<string> printInTextbox, int noOfThreads, int limit)
+        private void LockPrimer(TextBoxLogger logger, int noOfThreads, int limit)
         {
             counter = 0;
             object _lock = new object();
 
-            printInTextbox("Primer 'Lock'");
+            logger.Log("Primer 'Lock'");
             List<Task> tasks = new List<Task>();
             for (int i = 0; i < noOfThreads; i++)
             {
@@ -78,7 +79,7 @@ namespace SeminarskaPraksa.Tasks
                                 break;
                         }
                     }
-                    printInTextbox($"Vrednost spremenljivke po zanki: {counter}");
+                    logger.Log($"Vrednost spremenljivke po zanki: {counter}");
                 }));
             }
 

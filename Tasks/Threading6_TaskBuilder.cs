@@ -1,21 +1,22 @@
 ﻿using SeminarskaPraksa.AsyncTasks;
+using SeminarskaPraksa.Utilities;
 
 namespace SeminarskaPraksa.Tasks
 {
     internal class Threading6_TaskBuilder
     {
-        private readonly Action<string> _writer;
+        private readonly TextBoxLogger _logger;
 
-        public Threading6_TaskBuilder(Action<string> writer)
+        public Threading6_TaskBuilder(TextBoxLogger logger)
         {
-            _writer = writer;
+            _logger = logger;
         }
 
         internal async Task StartTasks(List<IAsyncTask> tasks, int timeout)
         {
-            _writer("Začetek");
+            _logger.Log("Začetek");
 
-            var taskBuilder = new TaskBuilder(_writer);
+            var taskBuilder = new TaskBuilder(_logger);
             var builtTasks = taskBuilder.BuildTasks(tasks, timeout);
 
             await Task.Delay(3000);
@@ -27,17 +28,17 @@ namespace SeminarskaPraksa.Tasks
             }
 
             await Task.WhenAll(runningTasks);
-            _writer("Konec");
+            _logger.Log("Konec");
         }
     }
 
     internal class TaskBuilder
     {
-        private Action<string> _writer;
+        private TextBoxLogger _logger;
 
-        public TaskBuilder(Action<string> writer)
+        public TaskBuilder(TextBoxLogger logger)
         {
-            _writer = writer;
+            _logger = logger;
         }
         internal List<Lazy<Task>> BuildTasks(List<IAsyncTask> tasks, int timeout)
         {
@@ -63,14 +64,14 @@ namespace SeminarskaPraksa.Tasks
                         if (!tcs.Task.IsCompleted)
                         {
                             tcs.TrySetResult(string.Empty);
-                            _writer("Timeout!");
+                            _logger.Log("Timeout!");
                         }
                     });
 
                     try
                     {
                         var result = await MainTaskAsync(task, tcs);
-                        _writer(result);
+                        _logger.Log(result);
                     }
                     catch (Exception ex)
                     {
